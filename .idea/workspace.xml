@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e0061d6f-8fe0-48c1-9dba-de303d2c6d11" name="Default Changelist" comment="upload image profile">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/upload/index.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1manS2b7ovrE9sZtNcV0sy96hvo" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="ignore_missing_gitignore" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e0061d6f-8fe0-48c1-9dba-de303d2c6d11" name="Default Changelist" comment="" />
+      <created>1609740566007</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1609740566007</updated>
+      <workItem from="1609740567079" duration="3987000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="349" y="238" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1609743236943">
+      <screen x="0" y="25" width="1440" height="815" />
+    </state>
+    <state x="349" y="238" key="#com.intellij.fileTypes.FileTypeChooser/0.25.1440.815/-1920.-619.1920.1055@0.25.1440.815" timestamp="1609743236943" />
+    <state x="304" y="25" width="831" height="815" key="CommitChangelistDialog2" timestamp="1609744759112">
+      <screen x="0" y="25" width="1440" height="815" />
+    </state>
+    <state x="304" y="25" width="831" height="815" key="CommitChangelistDialog2/0.25.1440.815/-1920.-619.1920.1055@0.25.1440.815" timestamp="1609744759112" />
+  </component>
+</project>
