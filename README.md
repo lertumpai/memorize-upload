@@ -4,7 +4,7 @@
 docker build --no-cache -t lertumpai/memorize-upload .
 
 # run application
-docker run --name memorize_upload -p 4000:4000 lertumpai/memorize-upload
+docker run -d --name memorize_upload -p 4000:4000 lertumpai/memorize-upload
 
 # Push docker
 docker commit memorize lertumpai/memorize-upload
