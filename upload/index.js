@@ -71,11 +71,17 @@ async function renameFile(req) {
 function removeFile(file) {
   const fileName = `${file.destination}/${file.fileName}`
   const timeout = process.env.TIME_OUT || 60000
-  setTimeout(() => fs.unlinkSync(fileName), timeout)
+  setTimeout(() => {
+    try {
+      fs.unlinkSync(fileName)
+    } catch (e) {
+      console.log('File not found')
+    }
+  }, timeout)
 }
 
 router.post('/acknowledge', async (req, res) => {
-  console.log('aaa')
+  console.log(req.body)
   const { uploadPath } = req.body
   const file = await renameFile(req)
   res.send({
