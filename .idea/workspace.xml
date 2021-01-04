@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e0061d6f-8fe0-48c1-9dba-de303d2c6d11" name="Default Changelist" comment="upload image">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+    <list default="true" id="e0061d6f-8fe0-48c1-9dba-de303d2c6d11" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +41,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609740566007</updated>
-      <workItem from="1609740567079" duration="9555000" />
+      <workItem from="1609740567079" duration="9991000" />
     </task>
     <task id="LOCAL-00001" summary="upload image profile">
       <created>1609744777748</created>
@@ -73,7 +71,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609749154573</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Dockerfile">
+      <created>1609752141899</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1609752141899</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -82,21 +87,23 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="upload image profile" />
     <MESSAGE value="upload image" />
-    <option name="LAST_COMMIT_MESSAGE" value="upload image" />
+    <MESSAGE value="Dockerfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dockerfile" />
   </component>
   <component name="WindowStateProjectService">
     <state x="349" y="238" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1609743236943">
       <screen x="0" y="25" width="1440" height="815" />
     </state>
     <state x="349" y="238" key="#com.intellij.fileTypes.FileTypeChooser/0.25.1440.815/-1920.-619.1920.1055@0.25.1440.815" timestamp="1609743236943" />
-    <state x="304" y="25" width="831" height="815" key="CommitChangelistDialog2" timestamp="1609749269550">
+    <state x="304" y="25" width="831" height="815" key="CommitChangelistDialog2" timestamp="1609752141685">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="304" y="25" width="831" height="815" key="CommitChangelistDialog2/0.25.1440.815/-1920.-619.1920.1055@0.25.1440.815" timestamp="1609744792691" />
-    <state x="304" y="25" key="CommitChangelistDialog2/0.25.1440.875/-1920.-619.1920.995@0.25.1440.875" timestamp="1609749269550" />
-    <state x="320" y="169" key="Vcs.Push.Dialog.v2" timestamp="1609744795080">
-      <screen x="0" y="25" width="1440" height="815" />
+    <state x="304" y="25" key="CommitChangelistDialog2/0.25.1440.875/-1920.-619.1920.995@0.25.1440.875" timestamp="1609752141685" />
+    <state x="320" y="180" key="Vcs.Push.Dialog.v2" timestamp="1609752144393">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="320" y="169" key="Vcs.Push.Dialog.v2/0.25.1440.815/-1920.-619.1920.1055@0.25.1440.815" timestamp="1609744795080" />
+    <state x="320" y="180" key="Vcs.Push.Dialog.v2/0.25.1440.875/-1920.-619.1920.995@0.25.1440.875" timestamp="1609752144393" />
   </component>
 </project>

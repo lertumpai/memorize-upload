@@ -8,7 +8,7 @@ services:
     ports:
       - 4000:4000
     volumes:
-      - upload_data:/memorize/data/uploads/
+      - upload_data:/data/uploads/
 
 volumes:
   upload_data:

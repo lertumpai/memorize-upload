@@ -13,4 +13,6 @@ docker tag memorize lertumpai/memorize-upload
 
 # copy file from docker to outside
 docker cp containerId:filepath .
+-> For this project
+docker cp containerId:/usr/src/memorize-upload/public/ .
 ```
