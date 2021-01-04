@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+  memorize_upload:
+    image: lertumpai/memorize-upload
+    restart: always
+    container_name: memorize_upload
+    command: npm run start
+    ports:
+      - 4000:4000
+    volumes:
+      - upload_data:/memorize/data/uploads/
+
+volumes:
+  upload_data:
+    driver: local

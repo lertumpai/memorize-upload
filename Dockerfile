@@ -8,6 +8,9 @@ COPY package.json /usr/src/memorize-upload
 
 RUN npm install
 
+RUN mkdir public
+RUN mkdir ./public/profiles
+RUN mkdir ./public/articles
 COPY . /usr/src/memorize-upload
 
 # tell the port number the container should expose
