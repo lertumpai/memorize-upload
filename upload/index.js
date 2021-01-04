@@ -4,7 +4,7 @@ const multer = require('multer')
 const sharp = require('sharp')
 
 const router = express.Router()
-const url = process.env.SERVER_URL || 'http://192.168.1.106/:4000'
+const url = process.env.SERVER_URL || 'localhost:4000'
 
 function generateString(n) {
   let result = ''
