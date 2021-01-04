@@ -14,7 +14,7 @@ app.use(
 app.use(express.static('public'))
 
 app.use('/upload', upload)
-app.use('/test', (req, res) => res.send('hello world'))
+app.get('/test', (req, res) => res.send('hello world'))
 
 app.listen({ port: 4000 }, () => {
   console.log('Server ready at http://localhost:4000')
