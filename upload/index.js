@@ -41,7 +41,7 @@ async function renameFile(req) {
   await fs.renameSync(req.file.path, newFileName)
 
   // resize
-  await sharp(newFileName).resize(800).toFile(newFileName800)
+  await sharp(newFileName).rotate().resize(800).toFile(newFileName800)
 
   // remove original file
   await fs.unlinkSync(newFileName)
