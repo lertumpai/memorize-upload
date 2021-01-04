@@ -60,7 +60,12 @@ async function renameFile(req) {
   const newPath = `${destination}/${newFileName}`
 
   // rename
-  await fs.renameSync(currentPath, newPath)
+
+  try {
+    await fs.renameSync(currentPath, newPath)
+  } catch (e) {
+    console.log('File not found')
+  }
 
   return {
     fileName: newFileName,
@@ -81,9 +86,9 @@ function removeFile(file) {
 }
 
 router.post('/acknowledge', async (req, res) => {
-  console.log(req.body)
   const { uploadPath } = req.body
   const file = await renameFile(req)
+
   res.send({
     ...file,
     urlImage: `http://${url}/${uploadPath}/${file.fileName}`,
