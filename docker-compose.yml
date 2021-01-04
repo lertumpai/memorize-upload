@@ -4,6 +4,8 @@ services:
     image: lertumpai/memorize-upload
     restart: always
     container_name: memorize_upload
+    environment:
+      - SERVER_URL=abc
     command: npm run start
     ports:
       - 4000:4000

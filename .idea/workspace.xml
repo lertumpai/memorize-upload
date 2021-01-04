@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e0061d6f-8fe0-48c1-9dba-de303d2c6d11" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/upload/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +43,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609740566007</updated>
-      <workItem from="1609740567079" duration="11283000" />
+      <workItem from="1609740567079" duration="12480000" />
     </task>
     <task id="LOCAL-00001" summary="upload image profile">
       <created>1609744777748</created>
@@ -106,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609757147194</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add test">
+      <created>1609757165137</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1609757165137</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,15 +134,15 @@
       <screen x="0" y="25" width="1440" height="815" />
     </state>
     <state x="349" y="238" key="#com.intellij.fileTypes.FileTypeChooser/0.25.1440.815/-1920.-619.1920.1055@0.25.1440.815" timestamp="1609743236943" />
-    <state x="304" y="25" width="831" height="815" key="CommitChangelistDialog2" timestamp="1609757147069">
+    <state x="304" y="25" width="831" height="815" key="CommitChangelistDialog2" timestamp="1609757165003">
       <screen x="0" y="25" width="1440" height="815" />
     </state>
-    <state x="304" y="25" width="831" height="815" key="CommitChangelistDialog2/0.25.1440.815/-1920.-619.1920.1055@0.25.1440.815" timestamp="1609757147069" />
+    <state x="304" y="25" width="831" height="815" key="CommitChangelistDialog2/0.25.1440.815/-1920.-619.1920.1055@0.25.1440.815" timestamp="1609757165003" />
     <state x="304" y="25" key="CommitChangelistDialog2/0.25.1440.875/-1920.-619.1920.995@0.25.1440.875" timestamp="1609752637163" />
-    <state x="320" y="169" key="Vcs.Push.Dialog.v2" timestamp="1609757149943">
+    <state x="320" y="169" key="Vcs.Push.Dialog.v2" timestamp="1609757167471">
       <screen x="0" y="25" width="1440" height="815" />
     </state>
-    <state x="320" y="169" key="Vcs.Push.Dialog.v2/0.25.1440.815/-1920.-619.1920.1055@0.25.1440.815" timestamp="1609757149943" />
+    <state x="320" y="169" key="Vcs.Push.Dialog.v2/0.25.1440.815/-1920.-619.1920.1055@0.25.1440.815" timestamp="1609757167471" />
     <state x="320" y="180" key="Vcs.Push.Dialog.v2/0.25.1440.875/-1920.-619.1920.995@0.25.1440.875" timestamp="1609752639648" />
   </component>
 </project>

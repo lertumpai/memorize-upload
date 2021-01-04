@@ -4,6 +4,7 @@ const multer = require('multer')
 const sharp = require('sharp')
 
 const router = express.Router()
+const url = process.env.SERVER_URL || 'localhost:4000'
 
 function generateString(n) {
   let result = ''
@@ -50,7 +51,7 @@ async function renameFile(req) {
 
 router.post('/profile', uploadProfile.single('photo'), async (req, res) => {
   const fileName = await renameFile(req)
-  res.send({ urlImage: `http://localhost:4000/profiles/${fileName}`})
+  res.send({ urlImage: `http://${url}/profiles/${fileName}`})
 })
 
 const articleStorage = multer.diskStorage({
