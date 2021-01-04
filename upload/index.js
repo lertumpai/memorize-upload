@@ -29,12 +29,12 @@ const profileStorage = multer.diskStorage({
 // const upload = multer({ storage: profileStorage })
 const uploadProfile = multer({ storage: profileStorage })
 
-async function renameFile(req) {
+async function createTempFile(req) {
   const { file } = req
 
   const fileName = `${req.body.userId}-${file.filename}`
   const newFileName = `${file.destination}/${fileName}`
-  const fileName800 = `${req.body.userId}-800-${file.filename}`
+  const fileName800 = `temporary-memorize-${req.body.userId}-800-${file.filename}`
   const newFileName800 = `${file.destination}/${fileName800}`
 
   // rename
@@ -46,12 +46,51 @@ async function renameFile(req) {
   // remove original file
   await fs.unlinkSync(newFileName)
 
-  return fileName800
+  return {
+    fileName: fileName800,
+    destination: file.destination,
+  }
 }
 
+async function renameFile(req) {
+  const { fileName, destination } = req.body
+
+  const newFileName = fileName.replace('temporary-memorize-', '')
+  const currentPath = `${destination}/${fileName}`
+  const newPath = `${destination}/${newFileName}`
+
+  // rename
+  await fs.renameSync(currentPath, newPath)
+
+  return {
+    fileName: newFileName,
+    destination,
+  }
+}
+
+function removeFile(file) {
+  const fileName = `${file.destination}/${file.fileName}`
+  const timeout = process.env.TIME_OUT || 10000
+  setTimeout(() => fs.unlinkSync(fileName), timeout)
+}
+
+router.post('/acknowledge', async (req, res) => {
+  const { uploadPath } = req.body
+  const file = await renameFile(req)
+  res.send({
+    ...file,
+    urlImage: `http://${url}/${uploadPath}/${file.fileName}`,
+  })
+})
+
 router.post('/profile', uploadProfile.single('photo'), async (req, res) => {
-  const fileName = await renameFile(req)
-  res.send({ urlImage: `http://${url}/profiles/${fileName}`})
+  const file = await createTempFile(req)
+  removeFile(file)
+  res.send({
+    ...file,
+    uploadPath: 'profiles',
+    urlImage: `http://${url}/profiles/${file.fileName}`,
+  })
 })
 
 const articleStorage = multer.diskStorage({
@@ -68,8 +107,13 @@ const articleStorage = multer.diskStorage({
 const uploadArticle = multer({ storage: articleStorage })
 
 router.post('/article', uploadArticle.single('photo'), async (req, res) => {
-  const fileName = await renameFile(req)
-  res.send({ urlImage: `http://localhost:4000/articles/${fileName}`})
+  const file = await createTempFile(req)
+  removeFile(file)
+  res.send({
+    ...file,
+    uploadPath: 'articles',
+    urlImage: `http://localhost:4000/articles/${file.fileName}`
+  })
 })
 
 module.exports = router
