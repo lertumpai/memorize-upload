@@ -79,8 +79,9 @@ function removeFile(file) {
   setTimeout(() => {
     try {
       fs.unlinkSync(fileName)
+      console.log(`${fileName} deleted`)
     } catch (e) {
-      console.log('File not found')
+      console.log(`${fileName} not found`)
     }
   }, timeout)
 }
