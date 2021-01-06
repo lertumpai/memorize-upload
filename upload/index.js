@@ -34,14 +34,14 @@ async function createTempFile(req) {
 
   const fileName = `${req.body.userId}-${file.filename}`
   const newFileName = `${file.destination}/${fileName}`
-  const fileName800 = `temporary-memorize-${req.body.userId}-800-${file.filename}`
+  const fileName800 = `temporary-memorize-${req.body.userId}-400-${file.filename}`
   const newFileName800 = `${file.destination}/${fileName800}`
 
   // rename
   await fs.renameSync(req.file.path, newFileName)
 
   // resize
-  await sharp(newFileName).rotate().resize(800).toFile(newFileName800)
+  await sharp(newFileName).rotate().resize(400).toFile(newFileName800)
 
   // remove original file
   await fs.unlinkSync(newFileName)
