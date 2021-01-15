@@ -92,7 +92,7 @@ router.post('/acknowledge', async (req, res) => {
 
   res.send({
     ...file,
-    urlImage: `http://${url}/${uploadPath}/${file.fileName}`,
+    urlImage: `/${uploadPath}/${file.fileName}`,
   })
 })
 
@@ -102,7 +102,7 @@ router.post('/profile', uploadProfile.single('photo'), async (req, res) => {
   res.send({
     ...file,
     uploadPath: 'profiles',
-    urlImage: `http://${url}/profiles/${file.fileName}`,
+    urlImage: `/profiles/${file.fileName}`,
   })
 })
 
