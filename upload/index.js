@@ -125,7 +125,7 @@ router.post('/article', uploadArticle.single('photo'), async (req, res) => {
   res.send({
     ...file,
     uploadPath: 'articles',
-    urlImage: `http://${url}/articles/${file.fileName}`
+    urlImage: `/articles/${file.fileName}`
   })
 })
 
