@@ -2,12 +2,4 @@
 
 docker build --no-cache \
       -t lertumpai/memorize-upload:latest \
-      -t lertumpai/memorize-upload:version-1.0.1 \
-      --build-arg NODE_ENV=$NODE_ENV \
-      --build-arg SERVER_URL=$SERVER_URL \
-      --build-arg SERVER_URL_PATH=$SERVER_URL_PATH \
-      --build-arg LOCAL_STORAGE_KEY=$LOCAL_STORAGE_KEY \
-      --build-arg SERVER_UPLOAD_IMAGE_URL=$SERVER_UPLOAD_IMAGE_URL \
-      --build-arg SERVER_URL_IMAGE=$SERVER_URL_IMAGE \
-      --build-arg SERVER_UPLOAD_IMAGE_URL_PROFILE_PATH=$SERVER_UPLOAD_IMAGE_URL_PROFILE_PATH \
-      --build-arg SERVER_UPLOAD_IMAGE_URL_ARTICLE_PATH=$SERVER_UPLOAD_IMAGE_URL_ARTICLE_PATH .
+      -t lertumpai/memorize-upload:version-1.0.1 .
