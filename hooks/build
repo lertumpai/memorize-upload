@@ -1,5 +1,0 @@
-#!/bin/bash
-
-docker build --no-cache \
-      -t lertumpai/memorize-upload:latest \
-      -t lertumpai/memorize-upload:version-1.0.1 .
