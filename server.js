@@ -6,8 +6,18 @@ const upload = require('./upload')
 
 const app = express()
 
+const corsOptions = {
+  credentials: true,
+  origin: function(origin, callback){
+    // allow requests with no origin
+    // (like mobile apps or curl requests)
+    if(!origin) return callback(null, true);
+    return callback(null, true);
+  }
+}
+
 app.use(
-  cors(),
+  cors(corsOptions),
   bodyParser.json({ limit: '15mb' }),
   bodyParser.urlencoded({ extended: true }),
 )
