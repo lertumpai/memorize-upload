@@ -12,6 +12,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="KubernetesApiPersistence">
+    <option name="context" value="gke_wide-strength-304907_australia-southeast1-a_memorize-cluster" />
+    <option name="namespace" value="default" />
+  </component>
   <component name="ProjectId" id="1manS2b7ovrE9sZtNcV0sy96hvo" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -21,8 +25,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="javascript.nodejs.core.library.configured.version" value="12.20.0" />
-    <property name="javascript.nodejs.core.library.typings.version" value="12.19.11" />
+    <property name="javascript.nodejs.core.library.configured.version" value="15.5.1" />
+    <property name="javascript.nodejs.core.library.typings.version" value="14.14.37" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -47,6 +51,8 @@
       <workItem from="1609768105006" duration="1150000" />
       <workItem from="1609773582664" duration="3806000" />
       <workItem from="1609905231929" duration="982000" />
+      <workItem from="1618032068006" duration="3049000" />
+      <workItem from="1618057733570" duration="634000" />
     </task>
     <task id="LOCAL-00001" summary="upload image profile">
       <created>1609744777748</created>
