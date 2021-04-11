@@ -9,10 +9,7 @@ const app = express()
 const corsOptions = {
   credentials: true,
   origin: function(origin, callback){
-    // allow requests with no origin
-    // (like mobile apps or curl requests)
-    if(!origin) return callback(null, true);
-    return callback(null, true);
+    return callback(null, true)
   }
 }
 
@@ -24,6 +21,7 @@ app.use(
 app.use(express.static('public'))
 
 app.use('/upload', upload)
+
 app.get('/test', (req, res) => {
   res.send({ message: 'hello world', url: process.env.SERVER_URL || 'localhost:4000'  })
 })

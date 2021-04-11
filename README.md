@@ -2,6 +2,7 @@
 ```
 TIME_OUT=300000
 SERVER_URL=
+BUCKET_NAME=
 ```
 
 # Docker
