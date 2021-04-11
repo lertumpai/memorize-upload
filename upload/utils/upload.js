@@ -18,6 +18,16 @@ function getBucket() {
   return storage.bucket(process.env.BUCKET_NAME)
 }
 
+async function getImageUrl(fileName, destination) {
+  const bucket = getBucket()
+  const targetFile = bucket.file(`${destination}/${fileName}`)
+  const signedUrl = await targetFile.getSignedUrl({
+    action: 'read',
+    expires: moment().add(1, 'h').toDate(),
+  })
+  return signedUrl[0]
+}
+
 module.exports = async function uploadImage(file, { destination }) {
   const { mimetype, buffer } = file
   const ext = mimetype.split('/')[1]
