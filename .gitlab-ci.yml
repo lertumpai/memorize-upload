@@ -1,18 +1,60 @@
-image: docker:19.03.13
-
-services:
-  - docker:19.03.13-dind
+image: node:12.18
 
 stages:
-  - build
+  - build-to-gcp-registry
+  - deploy-to-gke-cluster
+  - build-to-docker-hub
 
-build:
-  stage: build
+build-to-docker-hub:
+  services:
+    - name: docker:19.03.13-dind
+  image: docker:19.03.13
+  only:
+    refs:
+      - main
+  stage: build-to-docker-hub
   before_script:
     - echo $CI_REGISTRY_PASSWORD | docker login --username $CI_REGISTRY_USER --password-stdin
     - export VERSION=$(cat package.json | grep version | head -1 | sed 's/[version,",:]//g' | tr -d [:space:])
     - base64 -d $GCP_SA_KEY > key.json
   script:
-    - docker build --no-cache --tag $CI_REGISTRY_IMAGE:$VERSION --tag $CI_REGISTRY_IMAGE:latest .
+    - docker build --no-cache
+      --tag $CI_REGISTRY_IMAGE:$VERSION
+      --tag $CI_REGISTRY_IMAGE:latest .
     - docker push $CI_REGISTRY_IMAGE:$VERSION
     - docker push $CI_REGISTRY_IMAGE:latest
+
+build-to-gcp-registry:
+  services:
+    - name: docker:19.03.13-dind
+  image: docker:19.03.13
+  only:
+    refs:
+      - main
+  stage: build-to-gcp-registry
+  before_script:
+    - base64 -d $GCP_SA_KEY | docker login -u _json_key --password-stdin https://asia.gcr.io
+    - export VERSION=$(cat package.json | grep version | head -1 | sed 's/[version,",:]//g' | tr -d [:space:])
+    - base64 -d $GCP_SA_KEY > key.json
+  script:
+    - docker build --no-cache
+      --tag asia.gcr.io/$PROJECT_ID/$IMAGE_NAME:$VERSION
+      --tag asia.gcr.io/$PROJECT_ID/$IMAGE_NAME:latest .
+    - docker push asia.gcr.io/$PROJECT_ID/$IMAGE_NAME:$VERSION
+    - docker push asia.gcr.io/$PROJECT_ID/$IMAGE_NAME:latest
+
+deploy-to-gke-cluster:
+  services:
+    - name: docker:19.03.13-dind
+  image: google/cloud-sdk
+  only:
+    refs:
+      - main
+  stage: deploy-to-gke-cluster
+  before_script:
+    - base64 -d $GCP_SA_KEY > ${HOME}/gcloud-service-key.json
+    - gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+    - gcloud container clusters get-credentials memorize-cluster --zone australia-southeast1-a --project $PROJECT_ID
+    - export VERSION=$(cat package.json | grep version | head -1 | sed 's/[version,",:]//g' | tr -d [:space:])
+  script:
+    - kubectl set image deployment/memorize-upload memorize-upload=asia.gcr.io/$PROJECT_ID/$IMAGE_NAME:$VERSION --record

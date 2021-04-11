@@ -3,6 +3,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 
 const upload = require('./upload')
+const pkg = require('package.json')
 
 const app = express()
 
@@ -23,7 +24,11 @@ app.use(express.static('public'))
 app.use('/upload', upload)
 
 app.get('/test', (req, res) => {
-  res.send({ message: 'hello world', url: process.env.SERVER_URL || 'localhost:4000'  })
+  res.send({
+    message: 'hello world',
+    url: process.env.SERVER_URL || 'localhost:4000',
+    version: pkg.version,
+  })
 })
 
 app.listen({ port: 4000 }, () => {
