@@ -3,7 +3,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 
 const upload = require('./upload')
-const pkg = require('package.json')
+const pkg = require('./package.json')
 
 const app = express()
 
