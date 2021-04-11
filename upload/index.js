@@ -1,9 +1,9 @@
-import {uploadImage} from '../../memorize-backend/src/domain/upload/utils/upload'
-
 const express = require('express')
 const fs = require('fs')
 const multer = require('multer')
 const sharp = require('sharp')
+
+const { uploadImage } = require('./utils/upload')
 
 const router = express.Router()
 const url = process.env.SERVER_URL || '192.168.1.106:4000'
