@@ -39,10 +39,10 @@ build-to-gcp-registry:
     - base64 -d $GCP_SA_KEY > key.json
   script:
     - docker build --no-cache
-      --tag asia.gcr.io/$PROJECT_ID/$IMAGE_NAME:$VERSION
-      --tag asia.gcr.io/$PROJECT_ID/$IMAGE_NAME:latest .
-    - docker push asia.gcr.io/$PROJECT_ID/$IMAGE_NAME:$VERSION
-    - docker push asia.gcr.io/$PROJECT_ID/$IMAGE_NAME:latest
+      --tag asia.gcr.io/$GCP_PROJECT_ID/$IMAGE_NAME:$VERSION
+      --tag asia.gcr.io/$GCP_PROJECT_ID/$IMAGE_NAME:latest .
+    - docker push asia.gcr.io/$GCP_PROJECT_ID/$IMAGE_NAME:$VERSION
+    - docker push asia.gcr.io/$GCP_PROJECT_ID/$IMAGE_NAME:latest
 
 deploy-to-gke-cluster:
   services:
@@ -55,7 +55,7 @@ deploy-to-gke-cluster:
   before_script:
     - base64 -d $GCP_SA_KEY > ${HOME}/gcloud-service-key.json
     - gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
-    - gcloud container clusters get-credentials $GCP_CLUSTER_NAME --zone $GCP_CLUSTER_ZONE --project $PROJECT_ID
+    - gcloud container clusters get-credentials $GCP_CLUSTER_NAME --zone $GCP_CLUSTER_ZONE --project $GCP_PROJECT_ID
     - export VERSION=$(cat package.json | grep version | head -1 | sed 's/[version,",:]//g' | tr -d [:space:])
   script:
     - kubectl set image deployment/$DEPLOYMENT_NAME $DEPLOYMENT_NAME=asia.gcr.io/$GCP_PROJECT_ID/$IMAGE_NAME:$VERSION --record
