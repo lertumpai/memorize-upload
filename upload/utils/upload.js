@@ -21,11 +21,8 @@ function getBucket() {
 async function getImageUrl(fileName, destination) {
   const bucket = getBucket()
   const targetFile = bucket.file(`${destination}/${fileName}`)
-  const signedUrl = await targetFile.getSignedUrl({
-    action: 'read',
-    expires: moment().add(1, 'h').toDate(),
-  })
-  return signedUrl[0]
+  await targetFile.makePublic()
+  return targetFile.publicUrl()
 }
 
 module.exports = async function uploadImage(file, { destination }) {
