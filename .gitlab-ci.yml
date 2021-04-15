@@ -17,7 +17,7 @@ build-to-docker-hub:
     - echo $CI_REGISTRY_PASSWORD | docker login --username $CI_REGISTRY_USER --password-stdin
     - export VERSION=$(cat package.json | grep version | head -1 | sed 's/[version,",:]//g' | tr -d [:space:])
     - base64 -d $GCP_SA_KEY > key.json
-    - export REGISTRY_IMAGE=$($DOCKER_HUB_REGISTRY_USER/$IMAGE_NAME)
+    - export REGISTRY_IMAGE=$(echo $DOCKER_HUB_REGISTRY_USER/$IMAGE_NAME)
   script:
     - docker build --no-cache
       --tag $REGISTRY_IMAGE:$VERSION
