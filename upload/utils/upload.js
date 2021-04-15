@@ -34,7 +34,7 @@ module.exports = async function uploadImage(file, { destination }) {
   const bucket = getBucket()
   const targetFileName = generateString(20)
   const timestamp = new Date().valueOf()
-  const targetFileNameWithTimestamp = `${targetFileName}-${timestamp}.${ext}`
+  const targetFileNameWithTimestamp = `${timestamp}-${targetFileName}.${ext}`
   const targetFile = bucket.file(`${destination}/${targetFileNameWithTimestamp}`)
 
   const rotateResizer = sharp().rotate().resize(1000)
