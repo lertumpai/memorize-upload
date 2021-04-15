@@ -17,6 +17,7 @@ build-to-docker-hub:
     - echo $CI_REGISTRY_PASSWORD | docker login --username $CI_REGISTRY_USER --password-stdin
     - export VERSION=$(cat package.json | grep version | head -1 | sed 's/[version,",:]//g' | tr -d [:space:])
     - base64 -d $GCP_SA_KEY > key.json
+    - export REGISTRY_IMAGE=$($DOCKER_HUB_REGISTRY_USER/$IMAGE_NAME)
   script:
     - docker build --no-cache
       --tag $CI_REGISTRY_IMAGE:$VERSION
@@ -54,7 +55,7 @@ deploy-to-gke-cluster:
   before_script:
     - base64 -d $GCP_SA_KEY > ${HOME}/gcloud-service-key.json
     - gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
-    - gcloud container clusters get-credentials memorize-cluster --zone australia-southeast1-a --project $PROJECT_ID
+    - gcloud container clusters get-credentials $GCP_CLUSTER_NAME --zone $GCP_CLUSTER_ZONE --project $PROJECT_ID
     - export VERSION=$(cat package.json | grep version | head -1 | sed 's/[version,",:]//g' | tr -d [:space:])
   script:
-    - kubectl set image deployment/memorize-upload memorize-upload=asia.gcr.io/$PROJECT_ID/$IMAGE_NAME:$VERSION --record
+    - kubectl set image deployment/$DEPLOYMENT_NAME $DEPLOYMENT_NAME=asia.gcr.io/$GCP_PROJECT_ID/$IMAGE_NAME:$VERSION --record
