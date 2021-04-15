@@ -20,10 +20,10 @@ build-to-docker-hub:
     - export REGISTRY_IMAGE=$($DOCKER_HUB_REGISTRY_USER/$IMAGE_NAME)
   script:
     - docker build --no-cache
-      --tag $CI_REGISTRY_IMAGE:$VERSION
-      --tag $CI_REGISTRY_IMAGE:latest .
-    - docker push $CI_REGISTRY_IMAGE:$VERSION
-    - docker push $CI_REGISTRY_IMAGE:latest
+      --tag $REGISTRY_IMAGE:$VERSION
+      --tag $REGISTRY_IMAGE:latest .
+    - docker push $REGISTRY_IMAGE:$VERSION
+    - docker push $REGISTRY_IMAGE:latest
 
 build-to-gcp-registry:
   services:
