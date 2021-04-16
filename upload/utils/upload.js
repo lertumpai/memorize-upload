@@ -14,7 +14,7 @@ function generateString(n) {
 }
 
 function getBucket() {
-  const storage = new Storage({ keyFilename: 'key.json' })
+  const storage = new Storage()
   return storage.bucket(process.env.BUCKET_NAME)
 }
 

@@ -16,7 +16,6 @@ build-to-docker-hub:
   before_script:
     - echo $DOCKER_HUB_REGISTRY_PASSWORD | docker login --username $DOCKER_HUB_REGISTRY_USER --password-stdin
     - export VERSION=$(cat package.json | grep version | head -1 | sed 's/[version,",:]//g' | tr -d [:space:])
-    - base64 -d $GCP_SA_KEY > key.json
     - export REGISTRY_IMAGE=$(echo $DOCKER_HUB_REGISTRY_USER/$IMAGE_NAME)
   script:
     - docker build --no-cache
@@ -36,7 +35,6 @@ build-to-gcp-registry:
   before_script:
     - base64 -d $GCP_SA_KEY | docker login -u _json_key --password-stdin https://asia.gcr.io
     - export VERSION=$(cat package.json | grep version | head -1 | sed 's/[version,",:]//g' | tr -d [:space:])
-    - base64 -d $GCP_SA_KEY > key.json
   script:
     - docker build --no-cache
       --tag asia.gcr.io/$GCP_PROJECT_ID/$IMAGE_NAME:$VERSION
