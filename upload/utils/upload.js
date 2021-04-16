@@ -37,7 +37,7 @@ module.exports = async function uploadImage(file, { destination }) {
   const targetFileNameWithTimestamp = `${timestamp}-${targetFileName}.${ext}`
   const targetFile = bucket.file(`${destination}/${targetFileNameWithTimestamp}`)
 
-  const rotateResizer = sharp().rotate().resize(1000)
+  const rotateResizer = sharp().rotate().resize(1500)
 
   return new Promise(resolve => {
     fileStream
